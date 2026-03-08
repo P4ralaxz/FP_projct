@@ -395,3 +395,12 @@ val combined = for { r1 <- f1; r2 <- f2; r3 <- f3 } yield (r1, r2, r3)
 # รันโปรแกรม
 sbt run
 ```
+
+### ผลลัพธ์ที่คาดหวัง
+
+โปรแกรมจะแสดง:
+1. จำนวนข้อมูลที่อ่านได้ และจำนวน error
+2. ผล Data Validation (Postal Code vs City)
+3. ผล Business Logic ทั้ง 3 ข้อ
+4. ตารางเปรียบเทียบเวลา Sequential vs Parallel
+5. Overhead Discussion
