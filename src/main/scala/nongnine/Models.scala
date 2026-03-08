@@ -1,3 +1,5 @@
+package nongnine
+
 // case class = โครงสร้างข้อมูลแบบ FP (immutable, ไม่เปลี่ยนค่าได้)
 case class Vehicle(
   vin: String,

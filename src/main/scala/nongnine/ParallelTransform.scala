@@ -1,3 +1,5 @@
+package nongnine
+
 import scala.collection.parallel.CollectionConverters._
 import scala.concurrent.{Future, Await}
 import scala.concurrent.duration._

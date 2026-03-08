@@ -1,3 +1,5 @@
+package nongnine
+
 @main def run(): Unit =
 
   println("=== NinenoiInwza: Electric Vehicle Data ===\n")

@@ -1,3 +1,5 @@
+package nongnine
+
 object Benchmark {
 
   // pure function: จับเวลาการทำงาน
