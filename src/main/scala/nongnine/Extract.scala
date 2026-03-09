@@ -10,7 +10,7 @@ object Extract {
     val fields = line.split(",", -1)  // -1 เพื่อเก็บค่าว่างด้วย
 
     if (fields.length < 17) {
-      Left(s"แถวที่ $lineNumber: คอลัมน์ไม่ครบ (มี ${fields.length} ต้องการ 17)")
+      Left(s"Row $lineNumber: not enough columns (found ${fields.length}, expected 17)")
     } else {
       for {
         modelYear    <- parseIntField(fields(5).trim, "Model Year", lineNumber)
@@ -36,7 +36,7 @@ object Extract {
   private def parseIntField(value: String, fieldName: String, lineNumber: Int): Either[String, Int] = {
     if (value.isEmpty) Right(0)
     else Try(value.toInt).toEither.left.map(_ =>
-      s"แถวที่ $lineNumber: $fieldName '$value' ไม่ใช่ตัวเลข"
+      s"Row $lineNumber: $fieldName '$value' is not a number"
     )
   }
 
@@ -47,7 +47,7 @@ object Extract {
     }.getOrElse(List.empty)
 
     if (lines.isEmpty) {
-      (List("ไม่สามารถอ่านไฟล์ได้"), List.empty)
+      (List("Can't Read This File"), List.empty)
     } else {
       val results = lines.tail.zipWithIndex.map { case (line, idx) =>
         parseLine(line, idx + 2)  // +2 เพราะ header=1, index เริ่มที่ 0
