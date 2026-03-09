@@ -6,7 +6,7 @@ package nongnine
 
   // ---- Extract ----
   println("Reading data...")
-  val (errors, vehicles) = Extract.readCSV("test_missing_col.csv")
+  val (errors, vehicles) = Extract.readCSV("Electric_Vehicle_Population_Data.csv")  // test_bad_data  test_missing_col
   println(s"Successfully read: ${vehicles.length} rows | Errors: ${errors.length} rows\n")
 
   if errors.nonEmpty then
